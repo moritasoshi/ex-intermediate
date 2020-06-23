@@ -19,4 +19,9 @@ public class HotelService {
 	public List<Hotel> showList(Integer price) {
 		return repository.findByPrice(price);
 	}
+	public List<Hotel> showAll() {
+		return repository.findAll();
+	}
+	
+	
 }

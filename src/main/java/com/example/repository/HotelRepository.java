@@ -42,4 +42,16 @@ public class HotelRepository {
 
 	}
 
+	/**
+	 * findAllメソッド
+	 * 
+	 * @return List<Hotel>
+	 */
+	public List<Hotel> findAll() {
+		String sql = "SELECT * FROM hotels";
+		List<Hotel> hotelList = template.query(sql, HOTEL_ROW_MAPPER);
+		return hotelList;
+
+	}
+
 }
