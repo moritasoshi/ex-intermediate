@@ -15,6 +15,10 @@ public class Team {
 				+ headuarters + ", inauguration=" + inauguration + ", history=" + history + "]";
 	}
 
+	public Integer getIntId(String id) {
+		return Integer.parseInt(id);
+	}
+
 	public String getId() {
 		return id;
 	}
