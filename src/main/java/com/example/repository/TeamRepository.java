@@ -21,7 +21,7 @@ public class TeamRepository {
 		team.setId(String.valueOf(rs.getInt("id")));
 		team.setLeagueName(rs.getString("league_name"));
 		team.setTeamName(rs.getString("team_name"));
-		team.setHeaduarters(rs.getString("headuarters"));
+		team.setHeadquarters(rs.getString("headquarters"));
 		team.setInauguration(rs.getString("inauguration"));
 		team.setHistory(rs.getString("history"));
 		return team;

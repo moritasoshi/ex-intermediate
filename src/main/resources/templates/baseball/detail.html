@@ -10,18 +10,23 @@
 <title>野球</title>
 </head>
 <body>
-	<div class="bold">球団名</div>
-	読売ジャイアンツ
-	<div class="bold">本拠地</div>
-	東京ドーム
-	<div class="bold">発足</div>
-	1934年12月26日
-	<div class="bold">歴史</div>
-	大日本東京野球クラブ（1934年）
-	↓
-	東京巨人軍（1935年~1946年）
-	↓
-	読売ジャイアンツ（1947年~）
-	<a href="list.html"><button>戻る</button></a>
+	<div th:object="${team}">
+		<h4>球団名</h4>
+		<span th:text="*{teamName}">dammy</span>
+		<h4>本拠地</h4>
+		<span th:text="*{headquarters}">dammy</span>
+		<h4>発足</h4>
+		<span th:text="*{inauguration}">dammy</span>
+		<h4>歴史</h4>
+		<!-- <span th:text="*{history}">dammy</span> -->
+		<th:block th:if="*{history}">
+			<th:block th:each="str, stat : *{history.split('\r\n|\r|\n', -1)}">
+				<th:block th:text="${str}"/>
+				<br th:if="${!stat.last}">
+			</th:block>
+		</th:block>
+	</div>
+	<br>
+	<a th:href="@{/baseball/to-list}"><button>戻る</button></a>
 </body>
 </html>

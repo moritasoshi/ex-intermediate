@@ -6,11 +6,9 @@
 </head>
 <body>
 	<h4>野球チーム一覧</h4>
-	<a href="detail.html">読売ジャイアンツ</a>
-	<a href="detail.html">阪神タイガース</a>
-	<a href="detail.html">中日ドラゴンズ</a>
-	<a href="detail.html">横浜ベイスターズ</a>
-	<a href="detail.html">広島カープ</a>
-	<a href="detail.html"></a>
+	<div th:each="team, status : ${teamList}">
+		<a th:text="${team.teamName}"
+			th:href="@{'/baseball/to-detail?id='+${status.count}}">読売ジャイアンツ</a>
+	</div>
 </body>
 </html>
