@@ -19,11 +19,11 @@ td {
 </head>
 <body>
 	<h4>ホテル検索</h4>
-	<form th:action="@{/hotel/search}" method="post">
+	<form th:action="@{/hotel/search}" method="post" th:object="${hotelForm}">
+        <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}" style="color: red">error!</span><br>
 		<input type="text" name="price"> 円以下 <br> <br>
 		<button>検索</button>
 	</form>
-
 
 	<table th:each="hotel : ${hotelList}" th:object="${hotel}">
 		<tr>
