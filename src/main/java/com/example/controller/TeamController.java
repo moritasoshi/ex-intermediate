@@ -18,14 +18,10 @@ public class TeamController {
 		model.addAttribute("teamList", service.showList());
 		return "baseball/list";
 	}
+
 	@RequestMapping("/to-detail")
 	public String toDetail(Integer id, Model model) {
 		model.addAttribute("team", service.showDetail(id));
 		return "baseball/detail";
 	}
-	@RequestMapping("/to-list")
-	public String toList(Model model) {
-		return index(model);
-	}
-	
 }

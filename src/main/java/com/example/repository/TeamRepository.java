@@ -47,7 +47,7 @@ public class TeamRepository {
 	 * @return List<Team>
 	 */
 	public List<Team> findAll() {
-		String sql = "SELECT * FROM teams";
+		String sql = "SELECT * FROM teams ORDER BY inauguration";
 		List<Team> teamList = template.query(sql, TEAM_ROW_MAPPER);
 		return teamList;
 

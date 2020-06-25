@@ -19,14 +19,13 @@ td {
 </head>
 <body>
 	<h4>衣類検索</h4>
-	<form th:action="@{/clothes/search}" method="post">
-		<input type="radio" name="gender" value="0" checked="checked">Man<br>
-		<input type="radio" name="gender" value="1" >Woman<br>
-		<select name="color">
-			<option value="赤">赤</option>
-			<option value="青">青</option>
-			<option value="白">白</option>
-			<option value="黄">黄</option>
+	<form th:action="@{/clothes/search}" method="post" th:object="${clothesForm}">
+			<span th:each="gender : ${genderMap}">
+				<input type="radio" th:field="*{gender}" th:text="${gender.value}" th:value="${gender.key}"><br/>
+			</span>
+		
+		<select th:field="*{color}">
+			<option th:each="color : ${colorMap}" th:text="${color.value}" th:value="${color.key}">dammy</option>
 		</select>
 		<br>
 		<button>検索</button>

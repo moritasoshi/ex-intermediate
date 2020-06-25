@@ -29,14 +29,18 @@ public class HotelController {
 
 	@RequestMapping("/search")
 	public String toDetail(@Validated HotelForm hotelForm, BindingResult result, Model model) {
+		model.addAttribute("hotelForm", hotelForm);
+
 		if (result.hasErrors()) {
 			return "hotel/input";
 		}
+
 		if (hotelForm.getPrice() == "") {
 			model.addAttribute("hotelList", service.showAll());
 		} else {
 			model.addAttribute("hotelList", service.showList(hotelForm.getIntPrice()));
 		}
+		
 		return index();
 	}
 }

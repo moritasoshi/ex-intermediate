@@ -35,7 +35,7 @@ public class HotelRepository {
 	 * @return List<Hotel>
 	 */
 	public List<Hotel> findByPrice(Integer price) {
-		String sql = "SELECT * FROM hotels WHERE price <= :price";
+		String sql = "SELECT * FROM hotels WHERE price <= :price ORDER BY price";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("price", price);
 		List<Hotel> hotelList = template.query(sql, param, HOTEL_ROW_MAPPER);
 		return hotelList;
@@ -48,7 +48,7 @@ public class HotelRepository {
 	 * @return List<Hotel>
 	 */
 	public List<Hotel> findAll() {
-		String sql = "SELECT * FROM hotels";
+		String sql = "SELECT * FROM hotels ORDER BY price";
 		List<Hotel> hotelList = template.query(sql, HOTEL_ROW_MAPPER);
 		return hotelList;
 

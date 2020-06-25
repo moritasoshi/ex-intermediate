@@ -36,7 +36,7 @@ public class ClothesRepository {
 	 * @return List<Clothes>
 	 */
 	public List<Clothes> findByGenderAndColor(Integer gender, String color) {
-		String sql = "SELECT * FROM clothes WHERE gender=:gender AND color=:color";
+		String sql = "SELECT * FROM clothes WHERE gender=:gender AND color=:color ORDER BY price";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("gender", gender).addValue("color", color);
 		List<Clothes> clothesList = template.query(sql, param, CLOTHES_ROW_MAPPER);
 		return clothesList;
